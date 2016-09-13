@@ -17,11 +17,10 @@ Auth::loginUsingId(1);
 */
 
 Route::get('/', function () {
-	//$user = App\User::first();
-	//$lesson = App\Lesson::first();
+	$user = App\User::first();
+	$lesson = App\Lesson::first();
 
-    //$user->notify(new LessonPublished($lesson));
-    //return view('welcome');
+    $user->notify(new LessonPublished($lesson));
 
     //Auth::user()->notify(new SubscriptionCancelled);
 	$user = App\User::find(2);
@@ -29,5 +28,8 @@ Route::get('/', function () {
     $admin = App\User::find(1);
 
     $admin->notify(new PaymentReceived($user));
+
+    return view('welcome');
+
 
 });

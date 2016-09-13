@@ -47,7 +47,7 @@ class PaymentReceived extends Notification
                     ->fields([
                         'Amount' =>'£9.00',
                         'From'   => $this->user->name
-                    ])
+                    ]);
             });
    }
    
